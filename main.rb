@@ -8,6 +8,7 @@ end
 
 question = Question.new
 
-random_number = question.random_number
+random_number1 = question.random_number
+random_number2 = question.random_number
 
-puts "This is a random number: #{random_number}! 😀"
+puts "What is #{random_number1} + #{random_number2}? 🤔"

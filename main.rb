@@ -1,26 +1,20 @@
-class Question
+require_relative 'question'
 
-  def random_number
-    rand(0..20) 
+class Main
+  
+  def initialize
+    @question = Question.new
   end
 
+  def play_game
+    @question.ask_question
+    player_guess = gets.chomp
+    @question.check_answer(player_guess)
+  end
+  
 end
 
-question = Question.new
-
-random_number1 = question.random_number
-random_number2 = question.random_number
-
-correct_answer = random_number1 + random_number2
-
-puts "What is #{random_number1} + #{random_number2}? 🤔"
-
-player_guess = gets.chomp()
-
-if !player_guess.match?(/^-?\d+(\.\d+)?$/)
-  puts "Sorry, that's not even a number. 🫤"
-elsif player_guess.to_i == correct_answer
-  puts "Yes! 😀 You are correct! 🎉"
-else
-  puts "Sorry, that is incorrect. ☹️"
-end
+# game = Main.new
+# game.play_game
+# Can refactor on one line as:
+Main.new.play_game

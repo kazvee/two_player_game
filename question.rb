@@ -1,5 +1,6 @@
 class Question
-  def initialize
+  def initialize(player_name)
+    @player_name = player_name
     generate_numbers
   end
 
@@ -13,17 +14,17 @@ class Question
   end
 
   def ask_question
-    puts "What is #{@random_number1} + #{@random_number2}? 🤔"
+    puts "#{@player_name}, what is #{@random_number1} + #{@random_number2}? 🤔"
   end
 
   def check_answer(player_guess, player)
     if !player_guess.match?(/^-?\d+(\.\d*)?$/)
-      puts "Sorry, that's not even a number. 🫤"
+      puts "Sorry, #{@player_name}, that's not even a number. 🫤"
       player.lose_life
     elsif player_guess.to_i == @random_number1 + @random_number2
-      puts "Yes! 😀 You are correct! 🎉"
+      puts "Yes! 😀 #{@player_name}, you are correct! 🎉"
     else
-      puts "Sorry, that is incorrect. ☹️"
+      puts "Sorry, #{@player_name}, that is incorrect. ☹️"
       player.lose_life
     end
 

@@ -13,14 +13,16 @@ class Question
     puts "What is #{@random_number1} + #{@random_number2}? 🤔"
   end
 
-  def check_answer(player_guess)
+  def check_answer(player_guess, player)
 
     if !player_guess.match?(/^-?\d+(\.\d*)?$/)
       puts "Sorry, that's not even a number. 🫤"
+      player.lose_life
     elsif player_guess.to_i == @random_number1 + @random_number2
       puts "Yes! 😀 You are correct! 🎉"
     else
       puts "Sorry, that is incorrect. ☹️"
+      player.lose_life
     end
 
   end

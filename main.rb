@@ -11,8 +11,8 @@ class Main
   def play_game
     @question.ask_question
     player_guess = gets.chomp
-    @question.check_answer(player_guess)
-    puts "Lives remaining: #{@player.lives_remaining}"
+    @question.check_answer(player_guess, @player)
+    puts "Lives remaining: #{@player.lives_remaining} 🧮"
   end
   
 end
